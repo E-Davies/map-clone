@@ -11,20 +11,24 @@
 <body>
     
     <div class="form-floating w-50">
-        <textarea class="form-control h-100 bg-dark bg-gradient text-light" placeholder="Type here" id="floatingTextarea"></textarea>
+        <textarea class="form-control h-100 bg-dark bg-gradient text-light" placeholder="Type here" id="input"></textarea>
                 
         <div class="input-group">
             <span class="input-group-text bg-primary text-light">Speed</span>
-            
-                <select class="form-select form-select bg-secondary text-white" id="speed" aria-label="Speed select">
-                    <option selected >1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-                <button type="button" class="btn btn-success border-white">Play</button>
-                <button type="button" class="btn btn-primary border-white">Pause</button>
-                <button type="button" class="btn btn-primary border-white">Stop</button>
+            <select class="form-select form-select bg-secondary text-white" id="speed" aria-label="Speed select">
+                <option selected value="0.5">0.5</option>
+                <option value="1">1</option>
+                <option value="1.5">1.5</option>
+                <option value="2">2</option>
+                <option value="2.5">2.5</option>
+                <option value="3">3</option>
+                <option value="3.5">3.5</option>
+                <option value="4">4</option>
+                <option value="4.5">4.5</option>
+            </select>
+            <button type="button" id="play" class="btn btn-success border-white">Play</button>
+            <button type="button" id="pause" class="btn btn-primary border-white">Pause</button>
+            <button type="button" id="stop" class="btn btn-primary border-white">Stop</button>
         </div>
         
     </div>
