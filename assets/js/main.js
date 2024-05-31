@@ -1,8 +1,8 @@
-const input = document.getElementById('input');
-const speed = document.getElementById('speed');
-const playBtn = document.getElementById('play');
-const pauseBtn = document.getElementById('pause');
-const stopBtn = document.getElementById('stop');
+const input = $('#input');
+const speed = $('#speed');
+const playBtn = $('#play');
+const pauseBtn = $('#pause');
+const stopBtn = $('#stop');
 let currentCharacter;
 
 const sayInput = new SpeechSynthesisUtterance();
@@ -10,12 +10,13 @@ sayInput.addEventListener('boundary', e => {
     currentCharacter = e.charIndex
 });
 
-playBtn.addEventListener('click', () => {
-    playText(input.value);
+playBtn.on('click', () => {
+    playText(input.val());
+    // console.log(input.val())
 });
-pauseBtn.addEventListener('click', pauseText);
-stopBtn.addEventListener('click', stopText);
-speed.addEventListener('input', () => {
+pauseBtn.on('click', pauseText);
+stopBtn.on('click', stopText);
+speed.on('input', () => {
     stopText()
     playText(sayInput.text.substring(currentCharacter))
 });
@@ -25,7 +26,7 @@ function playText(input) {
         return speechSynthesis.resume();
     };
     sayInput.text = input;
-    sayInput.rate = speed.value || 1;
+    sayInput.rate = speed.val() || 1;
     speechSynthesis.speak(sayInput);
 };
 
@@ -41,4 +42,3 @@ function stopText() {
     speechSynthesis.resume();
     speechSynthesis.cancel();
 };
-
